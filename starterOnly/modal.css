@@ -17,6 +17,7 @@ body {
   background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
+  width: auto;
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -33,10 +34,20 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
+  padding-top: 15px;
 }
 .header-logo {
     float: left;
 }
+
+@media screen and (max-width: 540px){
+  .header-logo{
+    margin-left: 20px;
+    min-width: 50px;
+    
+  }
+}
+
 .main-navbar {
     float: right;
 }
@@ -73,6 +84,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
+    
   }
 }
 
@@ -226,8 +238,8 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
+
+/* input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
@@ -482,6 +494,7 @@ footer {
   .hero-section {
     display: block;
     box-shadow: unset;
+    
   }
   .hero-content {
     background: #fff;
@@ -495,12 +508,13 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    max-width: 100%;
+    font-size: 3rem;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .hero-img img {
     border-radius: 10px;

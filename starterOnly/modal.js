@@ -23,6 +23,16 @@ const tournaments = document.getElementById("quantity");
 const locations = document.querySelectorAll(".checkbox-input");
 const terms = document.getElementById("checkbox1");
 
+
+// get the parent element for errors
+const firstNameParent = firstName.parentNode;
+const lastNameParent = lastName.parentNode;
+const emailParent = email.parentNode;
+const birthdateParent = birthdate.parentNode;
+const tournamentsParent = tournaments.parentNode;
+const locationsParent = locations.parentNode;
+const termsParent = terms.parentNode;
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -34,7 +44,7 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// email validation - copy pasted from w3resource.com
+// email validation -  from w3resource.com
 function ValidateEmail(mail) 
 {
  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
@@ -46,23 +56,36 @@ function ValidateEmail(mail)
 
 // submit function
 function validateForm(){
-  if (firstName.value == null || firstName.value == "" || lastName.value == null || lastName.value == "") {
+  if (firstName.value.length < 2) {
+    firstNameParent.setAttribute("data-error-visible", true);
+    return false;
+  } else {
+    firstNameParent.removeAttribute("data-error-visible");
+  }
+
+  if (lastName.value.length < 2){
+    lastNameParent.setAttribute("data-error-visible", true);
     return false;
   }
 
   if (email.value == null || email.value == "" || !ValidateEmail(email.value)) {
+    // add data-error attribute to parent div of email input
+    emailParent.setAttribute("data-error-visible", true);
     return false;
   }
 
   if (birthdate.value == null || birthdate.value == "") {
+    birthdateParent.setAttribute("data-error-visible", true);
     return false;
   }
 
   if (tournaments.value == null || tournaments.value == "") {
+    tournamentsParent.setAttribute("data-error-visible", true);
     return false;
   }
 
   if (!terms.checked) {
+    termsParent.setAttribute("data-error-visible", true);
     return false;
   }
 

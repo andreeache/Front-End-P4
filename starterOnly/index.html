@@ -63,40 +63,40 @@
               onsubmit="return validateForm();"
             >
               <div
-                class="formData">
-                <label>First Name</label><br>
+                class="formData" data-error="Please enter 2+ characters for name field">
+                <label for="first"> First Name</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
+                 
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>Last Name</label><br>
+                class="formData" data-error="Please enter 2+ characters for name field">
+                <label for="last">Last Name</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
-                  minlength="2"
+
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>Email</label><br>
+                class="formData" data-error="Please enter a valid email address">
+                <label for="email">Email</label><br>
                 <input
                   class="text-control"
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>Birthdate</label><br>
+                class="formData" data-error="You must enter your date of birth.">
+                <label for="birthdate">Birthdate</label><br>
                 <input
                   class="text-control"
                   type="date"
@@ -105,8 +105,8 @@
                 /><br>
               </div>
               <div
-                class="formData">
-                <label>How many tournaments have you attended? </label><br>
+                class="formData" data-error="You must choose one option">
+                <label for="quantity">How many tournaments have you attended? </label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">Which location?</p>
@@ -182,7 +182,7 @@
               </div>
 
               <div
-                class="formData">
+                class="formData" data-error="You must check to agree to terms and conditions.">
                 <input
                   class="checkbox-input"
                   type="checkbox"
