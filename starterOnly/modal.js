@@ -30,7 +30,7 @@ const lastNameParent = lastName.parentNode;
 const emailParent = email.parentNode;
 const birthdateParent = birthdate.parentNode;
 const tournamentsParent = tournaments.parentNode;
-const locationsParent = locations.parentNode;
+const locationsParent = locations[0].parentNode;
 const termsParent = terms.parentNode;
 
 // launch modal event
@@ -56,7 +56,9 @@ function ValidateEmail(mail)
 
 // submit function
 function validateForm(){
+  //if condition 
   if (firstName.value.length < 2) {
+    // set the error attribute on the parent
     firstNameParent.setAttribute("data-error-visible", true);
     return false;
   } else {
@@ -66,27 +68,48 @@ function validateForm(){
   if (lastName.value.length < 2){
     lastNameParent.setAttribute("data-error-visible", true);
     return false;
-  }
+  } else {
+    lastNameParent.removeAttribute("data-error-visible");
+  } 
 
   if (email.value == null || email.value == "" || !ValidateEmail(email.value)) {
     // add data-error attribute to parent div of email input
     emailParent.setAttribute("data-error-visible", true);
     return false;
+  } else {
+    emailParent.removeAttribute("data-error-visible");
   }
 
   if (birthdate.value == null || birthdate.value == "") {
     birthdateParent.setAttribute("data-error-visible", true);
     return false;
+  } else {
+    birthdateParent.removeAttribute("data-error-visible");
   }
 
   if (tournaments.value == null || tournaments.value == "") {
     tournamentsParent.setAttribute("data-error-visible", true);
     return false;
+  } else {
+    tournamentsParent.removeAttribute("data-error-visible");
+  }
+// Validate location radi buttons
+//Creates hasChecked variable
+  let hasChecked = false;
+  // apply a function on all elements
+  locations.forEach((rb) => {if (rb.checked) { hasChecked = true};})
+  if (!hasChecked) {
+    locationsParent.setAttribute("data-error-visible", true);
+    return false;
+  } else {
+    locationsParent.removeAttribute("data-error-visible");
   }
 
   if (!terms.checked) {
     termsParent.setAttribute("data-error-visible", true);
     return false;
+  } else {
+    termsParent.removeAttribute("data-error-visible");
   }
 
   return true;
