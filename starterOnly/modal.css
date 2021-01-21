@@ -35,16 +35,20 @@ img {
   overflow: hidden;
   margin: 3.5%;
   padding-top: 15px;
+  max-width: 100%;
 }
 .header-logo {
     float: left;
+   width: 30vw;
+   
 }
 
 @media screen and (max-width: 540px){
-  .header-logo{
+  .header-logo img{
     margin-left: 20px;
-    min-width: 50px;
-    
+    margin-right: 60px;
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -509,12 +513,21 @@ footer {
   }
   .hero-headline {
     max-width: 100%;
-    font-size: 3rem;
+    font-size: 11vw;
     white-space: normal;
+    margin-left: 2px;
+    
   }
   .hero-text {
     width: unset;
     font-size: 1rem;
+    margin-top: 15px;
+    
+    height: auto;
+    display: flex;
+    flex-wrap: wrap; 
+    width: 80vw;
+    padding-right: 2vw;
   }
   .hero-img img {
     border-radius: 10px;

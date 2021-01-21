@@ -20,8 +20,11 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const tournaments = document.getElementById("quantity");
-const locations = document.querySelectorAll(".checkbox-input");
+const locations = document.querySelectorAll(".radiobutton");
 const terms = document.getElementById("checkbox1");
+
+
+
 
 
 // get the parent element for errors
