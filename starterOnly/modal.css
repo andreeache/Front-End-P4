@@ -245,11 +245,11 @@ input {
   border: 2px solid #e54858;
 }
 
-/* input[data-error]::after {
+input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
-} */
+}
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -495,6 +495,7 @@ footer {
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
+
 }
 @media screen and (max-width: 800px) {
   .hero-section {
@@ -541,9 +542,11 @@ footer {
     padding: 12px 35px;
   }
   .copyrights {
-    margin-top: 50px;
+    margin-top: 5px;
     text-align: center;
   }
+  
+  
 }
 
 @keyframes modalopen {
@@ -557,8 +560,6 @@ footer {
 }
 
 .confirmation-modal{
-  /* display: flex;
-  opacity: 1; */
   display: none;
   position: fixed;
   z-index: 1;
