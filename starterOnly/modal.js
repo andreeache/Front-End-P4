@@ -27,6 +27,7 @@ const birthdate = document.getElementById("birthdate");
 const tournaments = document.getElementById("quantity");
 const locations = document.querySelectorAll(".radiobutton");
 const terms = document.getElementById("checkbox1");
+const newsletterSignUP = document.getElementById("checkbox2");
 
 
 
@@ -118,7 +119,9 @@ function validateForm(){
     termsParent.removeAttribute("data-error-visible");
   }
 confirmationModal[0].style.display = "flex";
-firstName.value="";
+firstName.value = lastName.value = email.value = birthdate.value = tournaments.value = "";
+locations.forEach((rb) => {rb.checked = false;});
+newsletterSignUP.checked = false;
 hideModal();
   return true;
 }
