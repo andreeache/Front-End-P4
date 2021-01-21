@@ -14,6 +14,9 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelectorAll(".close")
 const formData = document.querySelectorAll(".formData");
 
+//DOM Elements for closing the confirmation modal
+const modalConfirmation = document.querySelector(".confirmation-modal"); 
+
 // form elements
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
@@ -122,5 +125,6 @@ function validateForm(){
 function hideModal() {
   modalbg.style.display = "none";
 }
+
 
 
