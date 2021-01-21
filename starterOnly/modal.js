@@ -14,8 +14,10 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelectorAll(".close")
 const formData = document.querySelectorAll(".formData");
 
-//DOM Elements for closing the confirmation modal
-const modalConfirmation = document.querySelector(".confirmation-modal"); 
+//DOM Elements for confirmation modal
+const confirmationModal = document.querySelectorAll(".confirmation-modal");
+const hideConfirmationBtn = document.querySelectorAll(".hide-confirmation");
+hideConfirmationBtn.forEach((btn) => btn.addEventListener("click", hideModalConfirmation));
 
 // form elements
 const firstName = document.getElementById("first");
@@ -25,8 +27,6 @@ const birthdate = document.getElementById("birthdate");
 const tournaments = document.getElementById("quantity");
 const locations = document.querySelectorAll(".radiobutton");
 const terms = document.getElementById("checkbox1");
-
-
 
 
 
@@ -117,7 +117,9 @@ function validateForm(){
   } else {
     termsParent.removeAttribute("data-error-visible");
   }
-
+confirmationModal[0].style.display = "flex";
+firstName.value="";
+hideModal();
   return true;
 }
 
@@ -127,4 +129,7 @@ function hideModal() {
 }
 
 
-
+function hideModalConfirmation(){
+  confirmationModal[0].style.display = "none";
+  hideModal();
+}

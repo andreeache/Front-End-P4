@@ -182,7 +182,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  /* background-color: rgba(26, 39, 156, 0.4); */
   margin-top: 5vh;
   
 }
@@ -557,9 +557,9 @@ footer {
 }
 
 .confirmation-modal{
-  display: flex;
-  opacity: 1;
-  /* display: none; */
+  /* display: flex;
+  opacity: 1; */
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -567,7 +567,7 @@ footer {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  /* background-color: rgba(26, 39, 156, 0.4); */
   margin-top: 9vh;
   
 }

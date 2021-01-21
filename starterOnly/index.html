@@ -60,7 +60,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validateForm();"
+              onsubmit="validateForm(); return false ;"
             >
               <div
                 class="formData" data-error="Please enter 2+ characters for name field">
@@ -212,9 +212,9 @@
       </div>
       <div class="confirmation-modal">
         <div class="content">
-        <span class="close "></span>
+        <span class="close " class="hide-confirmation" ></span>
         <div class="confirmation-text">Thank you for submitting your registration details</div>
-        <button type="button" class="close-confirmation">Close</button>
+        <button type="button" class="close-confirmation hide-confirmation">Close</button>
       </div>
       </div>
     </main>
