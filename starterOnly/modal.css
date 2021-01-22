@@ -183,7 +183,6 @@ main {
   width: 100%;
   overflow: auto;
   /* background-color: rgba(26, 39, 156, 0.4); */
-  margin-top: 5vh;
   
 }
 
@@ -569,7 +568,7 @@ footer {
   width: 100%;
   overflow: auto;
   /* background-color: rgba(26, 39, 156, 0.4); */
-  margin-top: 9vh;
+  margin-top: 6vh;
   
 }
 
