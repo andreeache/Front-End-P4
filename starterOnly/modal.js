@@ -66,7 +66,7 @@ function validateForm(){
   //if condition 
   if (firstName.value.length < 2) {
     // set the error attribute on the parent
-    firstNameParent.setAttribute("data-error-visible", true);
+    firstName.parentNode.setAttribute("data-error-visible", true);
     return false;
   } else {
     firstNameParent.removeAttribute("data-error-visible");
@@ -118,11 +118,11 @@ function validateForm(){
   } else {
     termsParent.removeAttribute("data-error-visible");
   }
-confirmationModal[0].style.display = "flex";
-firstName.value = lastName.value = email.value = birthdate.value = tournaments.value = "";
-locations.forEach((rb) => {rb.checked = false;});
-newsletterSignUP.checked = false;
-hideModal();
+  confirmationModal[0].style.display = "flex";
+  firstName.value = lastName.value = email.value = birthdate.value = tournaments.value = "";
+  locations.forEach((rb) => {rb.checked = false;});
+  newsletterSignUP.checked = false;
+  hideModal();
   return true;
 }
 
