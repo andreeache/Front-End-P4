@@ -63,18 +63,19 @@ function ValidateEmail(mail)
 
 // submit function
 function validateForm(){
+  let isValid = true;
   //if condition 
   if (firstName.value.length < 2) {
     // set the error attribute on the parent
     firstName.parentNode.setAttribute("data-error-visible", true);
-    return false;
+    isValid = false;
   } else {
     firstNameParent.removeAttribute("data-error-visible");
   }
 
   if (lastName.value.length < 2){
     lastNameParent.setAttribute("data-error-visible", true);
-    return false;
+    isValid = false;
   } else {
     lastNameParent.removeAttribute("data-error-visible");
   } 
@@ -82,21 +83,21 @@ function validateForm(){
   if (email.value == null || email.value == "" || !ValidateEmail(email.value)) {
     // add data-error attribute to parent div of email input
     emailParent.setAttribute("data-error-visible", true);
-    return false;
+    isValid = false;
   } else {
     emailParent.removeAttribute("data-error-visible");
   }
 
   if (birthdate.value == null || birthdate.value == "") {
     birthdateParent.setAttribute("data-error-visible", true);
-    return false;
+    isValid = false;
   } else {
     birthdateParent.removeAttribute("data-error-visible");
   }
 
   if (tournaments.value == null || tournaments.value == "") {
     tournamentsParent.setAttribute("data-error-visible", true);
-    return false;
+    isValid = false;
   } else {
     tournamentsParent.removeAttribute("data-error-visible");
   }
@@ -107,17 +108,22 @@ function validateForm(){
   locations.forEach((rb) => {if (rb.checked) { hasChecked = true};})
   if (!hasChecked) {
     locationsParent.setAttribute("data-error-visible", true);
-    return false;
+    isValid = false;
   } else {
     locationsParent.removeAttribute("data-error-visible");
   }
 
   if (!terms.checked) {
     termsParent.setAttribute("data-error-visible", true);
-    return false;
+    isValid = false;
   } else {
     termsParent.removeAttribute("data-error-visible");
   }
+
+  if (!isValid) {
+    return false;
+  }
+
   confirmationModal[0].style.display = "flex";
   firstName.value = lastName.value = email.value = birthdate.value = tournaments.value = "";
   locations.forEach((rb) => {rb.checked = false;});
