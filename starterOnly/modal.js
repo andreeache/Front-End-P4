@@ -15,7 +15,7 @@ const modalClose = document.querySelectorAll(".close")
 const formData = document.querySelectorAll(".formData");
 
 //DOM Elements for confirmation modal
-const confirmationModal = document.querySelectorAll(".confirmation-modal");
+const confirmationModal = document.querySelector(".confirmation-modal");
 const hideConfirmationBtn = document.querySelectorAll(".hide-confirmation");
 hideConfirmationBtn.forEach((btn) => btn.addEventListener("click", hideModalConfirmation));
 
@@ -61,21 +61,25 @@ function ValidateEmail(mail)
     return (false)
 }
 
-// submit function
+// submit function - validate all the fields
 function validateForm(){
-  let isValid = true;
-  //if condition 
+  //assumed that all the fields are valid, will set it to false in case any of them is not
+  let isFormValid = true;
+
+  //if condition will be applied for each field
   if (firstName.value.length < 2) {
     // set the error attribute on the parent
+    // display an erro if field is invalid
     firstName.parentNode.setAttribute("data-error-visible", true);
-    isValid = false;
+    isFormValid = false;
   } else {
+    //clear the error message if data is correct
     firstNameParent.removeAttribute("data-error-visible");
   }
 
   if (lastName.value.length < 2){
     lastNameParent.setAttribute("data-error-visible", true);
-    isValid = false;
+    isFormValid = false;
   } else {
     lastNameParent.removeAttribute("data-error-visible");
   } 
@@ -83,52 +87,59 @@ function validateForm(){
   if (email.value == null || email.value == "" || !ValidateEmail(email.value)) {
     // add data-error attribute to parent div of email input
     emailParent.setAttribute("data-error-visible", true);
-    isValid = false;
+    isFormValid = false;
   } else {
     emailParent.removeAttribute("data-error-visible");
   }
 
   if (birthdate.value == null || birthdate.value == "") {
     birthdateParent.setAttribute("data-error-visible", true);
-    isValid = false;
+    isFormValid = false;
   } else {
     birthdateParent.removeAttribute("data-error-visible");
   }
 
   if (tournaments.value == null || tournaments.value == "") {
     tournamentsParent.setAttribute("data-error-visible", true);
-    isValid = false;
+    isFormValid = false;
   } else {
     tournamentsParent.removeAttribute("data-error-visible");
   }
-// Validate location radi buttons
-//Creates hasChecked variable
+  // Validate location radio buttons
+
+  //Creates hasChecked variable
   let hasChecked = false;
+
   // apply a function on all elements
   locations.forEach((rb) => {if (rb.checked) { hasChecked = true};})
   if (!hasChecked) {
     locationsParent.setAttribute("data-error-visible", true);
-    isValid = false;
+    isFormValid = false;
   } else {
     locationsParent.removeAttribute("data-error-visible");
   }
 
   if (!terms.checked) {
     termsParent.setAttribute("data-error-visible", true);
-    isValid = false;
+    isFormValid = false;
   } else {
     termsParent.removeAttribute("data-error-visible");
   }
 
-  if (!isValid) {
+  if (!isFormValid) {
     return false;
   }
-
-  confirmationModal[0].style.display = "flex";
+  //display a form with confirmation message
+  confirmationModal.style.display = "flex";
+  //if form is validated, clear all the text fields
   firstName.value = lastName.value = email.value = birthdate.value = tournaments.value = "";
+  //if form is validated uncheck all radio buttons
   locations.forEach((rb) => {rb.checked = false;});
+  //uncheck the sign up checkbox
   newsletterSignUP.checked = false;
+  //hide the form modal
   hideModal();
+  // form is valid
   return true;
 }
 
@@ -137,8 +148,8 @@ function hideModal() {
   modalbg.style.display = "none";
 }
 
-
+// closes the cofirmation modal 
 function hideModalConfirmation(){
-  confirmationModal[0].style.display = "none";
+  confirmationModal.style.display = "none";
   hideModal();
 }

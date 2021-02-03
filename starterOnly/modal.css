@@ -59,12 +59,6 @@ img {
     
 }
 
-/* @media screen and (max-width: 540px){
-  .main-navbar {
-    margin-top: 0px;
-  }
-  ]
-} */
 
 .topnav a {
   float: left;
@@ -570,6 +564,8 @@ footer {
   }
 }
 
+
+/* styled the confirmation modal  */
 .confirmation-modal{
   display: none;
   position: fixed;
