@@ -54,7 +54,7 @@
         <span class="close"></span>
         <div class="modal-body">
           <!-- validation always return false because we are closing the form ourselves from the validation function -->
-          <form name="reserve" action="index.html" method="get" onsubmit="validateForm(); return false ;">
+          <form name="reserve" action="index.html" method="get" onsubmit="return validateForm();">
             <!-- added data-error message -->
             <div class="formData" data-error="Please enter 2+ characters for name field">
               <label for="first"> First Name</label><br>

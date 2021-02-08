@@ -146,8 +146,8 @@ function validateForm(){
   newsletterSignUP.checked = false;
   //hide the form modal
   hideModal();
-  // form is valid
-  return true;
+  // form is valid but return false because we manage ourselves the form display & hide
+  return false;
 }
 
 
