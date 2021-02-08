@@ -12,12 +12,11 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 // match the close class button
 const modalClose = document.querySelectorAll(".close")
-const formData = document.querySelectorAll(".formData");
 
 //DOM Elements for confirmation modal
 const confirmationModal = document.querySelector(".confirmation-modal");
 const hideConfirmationBtn = document.querySelectorAll(".hide-confirmation");
-hideConfirmationBtn.forEach((btn) => btn.addEventListener("click", hideModalConfirmation));
+
 
 // form elements
 const firstName = document.getElementById("first");
@@ -46,9 +45,17 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // add the close form action
 modalClose.forEach((btn) => btn.addEventListener("click", hideModal));
 
+// add the close confirmation modala-action
+hideConfirmationBtn.forEach((btn) => btn.addEventListener("click", hideModalConfirmation));
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+}
+
+// hide the modal form
+function hideModal() {
+  modalbg.style.display = "none";
 }
 
 // email validation -  from w3resource.com
@@ -143,10 +150,7 @@ function validateForm(){
   return true;
 }
 
-// hide the modal form
-function hideModal() {
-  modalbg.style.display = "none";
-}
+
 
 // closes the cofirmation modal 
 function hideModalConfirmation(){
